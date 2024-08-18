@@ -1,0 +1,107 @@
+
+#three tier architecture diagram
+working station --staging --local repo---remote repo
+
+-----------------------------------------------------------------------------------
+
+#cmnds
+
+git init
+git branch
+git branch -a
+git add filename
+git commit -m"message"
+git congig -global user.name "name"
+git congig -global user.email "email"
+git remote add origin "repo url"
+git push origin master
+git pull -r
+git clone "repo url"
+git log
+git log --oneline
+git reset <commit id> (by default soft reset-soft used for reset the file in vcs)
+git reset --hard <commit id>  ------(not recommened due to file will deleted)
+git checkout <an other user>
+git revert <commitid> -to delete particular change in file
+git revert <commitid> --no-commit ----used to delete the file with  in vcs manually by commit the remove cmnd
+
+---------------------------------------------------------------------------------------
+
+remote repo 
+
+#pull and push 
+
+git push origin master
+git pull -r
+git remote -v ----to know remote repo
+git remote set-url origin <repo url>--set particular repo
+
+-----------------------------------------------------------
+
+branch & merge
+
+git branch <name>
+git checkout <branchname>
+git checkout -b <namename>--to create a new branch n swtich to the created branch
+git branch -d <branchname> to delete branch
+
+git merge <oldbranch/sorce> <newbranch/target>
+
+
+------------------------------------------------------------
+
+Rebase 
+
+#alternate to Merge 
+#used to commit sequence happened in master to branch and atlast to commit the changes made in branch that rebase with master 
+
+git rebase <branchname/target> <master branch/destination>
+
+--------------------------------------------------------------------
+
+cherry-pick 
+
+#to copy particular commit to master branch from the other branch 
+#used to copy single specific commit
+#in this first we need go to the master/destination branch , then we need execute the command 
+
+
+git checkout master 
+git cherry-pick <commitid>
+
+--------------------------------------------------------------------------------
+
+Stash 
+
+#used to hide the recently added file in the memory running back 
+#incase of emergency commit a new file while we have executing other file ,so we just use stash to hide the file which we r working currently in background and work in emeregency or other file 
+
+git stash 
+git stash list 
+git stash pop -----used to bring back the file 
+git stash pop <1>--number indicates the order of which which need to pop first !
+
+-------------------------------------------------------------------------------------
+
+merge confilts 
+
+this raise when two copies of remote repo taken and one copy repo made chanange and doesnt commit the changes ,another one made changes and commit the change and while try to push to orgin this conflict raise !
+
+to resolve this need to we can resolve via command line or web ,the owner needs to confirm whether what changes to done or change of code to present in file 
+
+after that we can push to origin and confilts will resolved!
+
+----------------------------------------------------------------------------------------
+
+squash
+
+#to delete the many commits happened so the we can see log as single commit happened ! if we once squash the commit we cant retrive!
+#need to squad the commit with last before commit id ,if we squash the last commid we will receive error
+ 
+git rebase -i Head~[]
+git rebase -i <commitid>
+-------------------------------------------------------------------------------------------------------
+
+
+
+ 
